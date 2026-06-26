@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XQL TECH - Konsultan IT Terpercaya untuk Transformasi Digital Bisnis Anda">
+    <title>XQL TECH - IT Consulting Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="#home" class="logo">
+                    <img src="logo xql.jpeg" alt="XQL TECH Logo" class="logo-image">
+                </a>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active" data-i18n="nav_home">Beranda</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav_about">Tentang Kami</a></li>
+                    <li><a href="#services" class="nav-link" data-i18n="nav_services">Layanan</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Kontak</a></li>
+                    <li>
+                        <button class="lang-switcher" id="langSwitcher">
+                            <span class="lang-current">ID</span>
+                            <span class="lang-divider">|</span>
+                            <span class="lang-alt">EN</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-badge" data-i18n="hero_badge">🚀 Partner Transformasi Digital Anda</span>
+                <h1 class="hero-title" data-i18n="hero_title">Solusi IT Inovatif untuk <span class="highlight">Pertumbuhan Bisnis</span> Anda</h1>
+                <p class="hero-description" data-i18n="hero_desc">XQL TECH membantu perusahaan Anda bertransformasi melalui teknologi terkini. Dari pengembangan software hingga cloud solutions, kami siap menjadi partner strategis Anda.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary" data-i18n="hero_cta1">Konsultasi Gratis</a>
+                    <a href="#services" class="btn btn-secondary" data-i18n="hero_cta2">Lihat Layanan</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label" data-i18n="stat_projects">Proyek Selesai</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label" data-i18n="stat_clients">Klien Puas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label" data-i18n="stat_years">Tahun Pengalaman</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-illustration">
+                    <div class="floating-card card-1">
+                        <span class="card-icon">☁️</span>
+                        <span data-i18n="card_cloud">Cloud Solutions</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <span class="card-icon">🔒</span>
+                        <span data-i18n="card_security">IT Security</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <span class="card-icon">💻</span>
+                        <span data-i18n="card_dev">Software Dev</span>
+                    </div>
+                    <div class="main-graphic">
+                        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="200" cy="200" r="150" fill="url(#grad1)" opacity="0.1"/>
+                            <circle cx="200" cy="200" r="120" fill="url(#grad1)" opacity="0.2"/>
+                            <circle cx="200" cy="200" r="90" fill="url(#grad1)" opacity="0.3"/>
+                            <text x="200" y="180" text-anchor="middle" font-size="60" fill="#667eea">⚡</text>
+                            <text x="200" y="240" text-anchor="middle" font-size="24" font-weight="bold" fill="#333">XQL TECH</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients/Partners Section -->
+    <section class="clients-section">
+        <div class="container">
+            <p class="clients-title" data-i18n="clients_title">Dipercaya oleh perusahaan terkemuka</p>
+            <div class="clients-logos">
+                <div class="client-logo">TechCorp</div>
+                <div class="client-logo">InnovateCo</div>
+                <div class="client-logo">DigitalFirst</div>
+                <div class="client-logo">CloudNine</div>
+                <div class="client-logo">SecureNet</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="about_subtitle">Tentang Kami</span>
+                <h2 class="section-title" data-i18n="about_title">Membangun Masa Depan Digital yang Lebih Baik</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description" data-i18n="about_desc1">XQL TECH adalah perusahaan konsultan IT yang berdedikasi untuk membantu bisnis di Indonesia melakukan transformasi digital. Didirikan pada tahun 2015, kami telah membantu lebih dari 50 perusahaan dari berbagai industri.</p>
+                    <p class="about-description" data-i18n="about_desc2">Dengan tim ahli yang berpengalaman dan sertifikasi internasional, kami memberikan solusi IT yang tidak hanya canggih secara teknologi, tetapi juga selaras dengan tujuan bisnis Anda.</p>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <span class="value-icon">🎯</span>
+                            <h4 data-i18n="value_vision_title">Visi</h4>
+                            <p data-i18n="value_vision_desc">Menjadi partner transformasi digital terdepan di Asia Tenggara</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🚀</span>
+                            <h4 data-i18n="value_mission_title">Misi</h4>
+                            <p data-i18n="value_mission_desc">Memberikan solusi IT inovatif yang mendorong pertumbuhan bisnis klien</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">💎</span>
+                            <h4 data-i18n="value_values_title">Nilai</h4>
+                            <p data-i18n="value_values_desc">Integritas, Inovasi, Kolaborasi, dan Keunggulan dalam setiap proyek</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="services_subtitle">Layanan Kami</span>
+                <h2 class="section-title" data-i18n="services_title">Solusi IT Lengkap untuk Bisnis Anda</h2>
+                <p class="section-description" data-i18n="services_desc">Kami menawarkan berbagai layanan IT yang dirancang untuk membantu bisnis Anda berkembang di era digital</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3 data-i18n="service1_title">Software Development</h3>
+                    <p data-i18n="service1_desc">Pengembangan aplikasi web dan mobile custom yang sesuai dengan kebutuhan bisnis Anda. Menggunakan teknologi terkini seperti React, Node.js, dan cloud-native architecture.</p>
+                    <ul class="service-features">
+                        <li data-i18n="service1_f1">Web Application Development</li>
+                        <li data-i18n="service1_f2">Mobile App Development</li>
+                        <li data-i18n="service1_f3">API Integration</li>
+                        <li data-i18n="service1_f4">Legacy System Modernization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3 data-i18n="service2_title">Cloud Solutions</h3>
+                    <p data-i18n="service2_desc">Migrasi dan optimasi infrastruktur cloud untuk meningkatkan skalabilitas dan efisiensi biaya. Partner resmi AWS, Azure, dan Google Cloud.</p>
+                    <ul class="service-features">
+                        <li data-i18n="service2_f1">Cloud Migration</li>
+                        <li data-i18n="service2_f2">Infrastructure as Code</li>
+                        <li data-i18n="service2_f3">DevOps Implementation</li>
+                        <li data-i18n="service2_f4">Cost Optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3 data-i18n="service3_title">IT Security</h3>
+                    <p data-i18n="service3_desc">Proteksi menyeluruh untuk aset digital Anda. Dari penetration testing hingga security audit, kami memastikan bisnis Anda aman dari ancaman siber.</p>
+                    <ul class="service-features">
+                        <li data-i18n="service3_f1">Security Audit & Assessment</li>
+                        <li data-i18n="service3_f2">Penetration Testing</li>
+                        <li data-i18n="service3_f3">Compliance Consulting</li>
+                        <li data-i18n="service3_f4">Incident Response</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 data-i18n="service4_title">IT Consulting</h3>
+                    <p data-i18n="service4_desc">Konsultasi strategis untuk transformasi digital dan optimasi proses bisnis. Kami membantu Anda membuat roadmap teknologi yang tepat.</p>
+                    <ul class="service-features">
+                        <li data-i18n="service4_f1">Digital Transformation Strategy</li>
+                        <li data-i18n="service4_f2">IT Roadmap Planning</li>
+                        <li data-i18n="service4_f3">Process Automation</li>
+                        <li data-i18n="service4_f4">Technology Assessment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="portfolio_subtitle">Portfolio Kami</span>
+                <h2 class="section-title" data-i18n="portfolio_title">Proyek yang Telah Kami Selesaikan</h2>
+                <p class="section-description" data-i18n="portfolio_desc">Beberapa studi kasus dari proyek-proyek terbaik kami yang telah memberikan dampak nyata bagi bisnis klien</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <img src="dave.jpeg" alt="Portfolio 1" class="portfolio-img" id="portfolioImg1">
+                        <span class="portfolio-icon" id="portfolioIcon1" style="display:none;">🚀</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category" data-i18n="portfolio1_cat">Travel</span>
+                        <h3 data-i18n="portfolio1_title">Travel Agent Bali Best Holiday</h3>
+                        <p data-i18n="portfolio1_desc">Mengembangkan platform travel yang memudahkan reservasi dan perencanaan liburan di Bali.</p>
+                        <div class="portfolio-results">
+                            <div class="result-item">
+                                <span class="result-value">500K+</span>
+                                <span class="result-label" data-i18n="portfolio_users">Pengguna</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">99.9%</span>
+                                <span class="result-label">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <img src="" alt="Portfolio 2" class="portfolio-img" id="portfolioImg2" data-i18n-src="portfolio2_img" style="display:none;">
+                        <span class="portfolio-icon" id="portfolioIcon2">🛒</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category" data-i18n="portfolio2_cat">E-Commerce</span>
+                        <h3 data-i18n="portfolio2_title">Inventory Management System</h3>
+                        <p data-i18n="portfolio2_desc">Sistem manajemen inventaris terintegrasi yang mengurangi biaya operasional hingga 40%.</p>
+                        <div class="portfolio-results">
+                            <div class="result-item">
+                                <span class="result-value">40%</span>
+                                <span class="result-label" data-i18n="portfolio_cost">Penghematan Biaya</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">3x</span>
+                                <span class="result-label" data-i18n="portfolio_faster">Lebih Cepat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <img src="" alt="Portfolio 3" class="portfolio-img" id="portfolioImg3" data-i18n-src="portfolio3_img" style="display:none;">
+                        <span class="portfolio-icon" id="portfolioIcon3">🏥</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category" data-i18n="portfolio3_cat">Healthcare</span>
+                        <h3 data-i18n="portfolio3_title">Telemedicine Platform</h3>
+                        <p data-i18n="portfolio3_desc">Platform telemedicine yang menghubungkan 1000+ dokter dengan pasien di seluruh Indonesia.</p>
+                        <div class="portfolio-results">
+                            <div class="result-item">
+                                <span class="result-value">1000+</span>
+                                <span class="result-label" data-i18n="portfolio_doctors">Dokter</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">24/7</span>
+                                <span class="result-label" data-i18n="portfolio_available">Tersedia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                        <img src="" alt="Portfolio 4" class="portfolio-img" id="portfolioImg4" data-i18n-src="portfolio4_img" style="display:none;">
+                        <span class="portfolio-icon" id="portfolioIcon4">📱</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category" data-i18n="portfolio4_cat">Education</span>
+                        <h3 data-i18n="portfolio4_title">E-Learning Platform</h3>
+                        <p data-i18n="portfolio4_desc">Platform pembelajaran online yang menghubungkan 500+ instruktur dengan 50.000+ siswa di seluruh Indonesia.</p>
+                        <div class="portfolio-results">
+                            <div class="result-item">
+                                <span class="result-value">50K+</span>
+                                <span class="result-label" data-i18n="portfolio_students">Siswa</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">500+</span>
+                                <span class="result-label" data-i18n="portfolio_instructors">Instruktur</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);">
+                        <img src="" alt="Portfolio 5" class="portfolio-img" id="portfolioImg5" style="display:none;">
+                        <span class="portfolio-icon" id="portfolioIcon5">💳</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category" data-i18n="portfolio5_cat">Fintech</span>
+                        <h3 data-i18n="portfolio5_title">Digital Payment Gateway</h3>
+                        <p data-i18n="portfolio5_desc">Gateway pembayaran digital yang memproses jutaan transaksi dengan keamanan tingkat tinggi dan integrasi multi-bank.</p>
+                        <div class="portfolio-results">
+                            <div class="result-item">
+                                <span class="result-value">5M+</span>
+                                <span class="result-label" data-i18n="portfolio_transactions">Transaksi</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">99.9%</span>
+                                <span class="result-label" data-i18n="portfolio_uptime">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="contact_subtitle">Hubungi Kami</span>
+                <h2 class="section-title" data-i18n="contact_title">Siap Memulai Transformasi Digital?</h2>
+                <p class="section-description" data-i18n="contact_desc">Konsultasikan kebutuhan IT Anda dengan tim ahli kami. Dapatkan solusi yang tepat untuk bisnis Anda.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4 data-i18n="contact_address_title">Alamat</h4>
+                            <p data-i18n="contact_address">Jl. kamboja 1 no.38, RT 011, RW 011, Kalideres, Kota Administrasi Jakarta Barat, Daerah Khusus Ibukota DKI Jakarta 11840</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <h4 data-i18n="contact_phone_title">Telepon</h4>
+                            <p>+62 896 0273 6826</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>xqltechstudio@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🕐</span>
+                        <div>
+                            <h4 data-i18n="contact_hours_title">Jam Operasional</h4>
+                            <p data-i18n="contact_hours">Senin - Jumat: 09:00 - 18:00 WIB</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <span>🗺️</span>
+                            <p>Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" data-i18n="form_name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="company" data-i18n="form_company">Perusahaan</label>
+                            <input type="text" id="company" name="company" placeholder="PT Example">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" data-i18n="form_email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="form_phone">No. Telepon</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+62 812 3456 7890">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service" data-i18n="form_service">Layanan yang Diminati</label>
+                        <select id="service" name="service">
+                            <option value="" data-i18n="form_select">Pilih Layanan</option>
+                            <option value="software" data-i18n="form_opt1">Software Development</option>
+                            <option value="cloud" data-i18n="form_opt2">Cloud Solutions</option>
+                            <option value="security" data-i18n="form_opt3">IT Security</option>
+                            <option value="consulting" data-i18n="form_opt4">IT Consulting</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="form_message">Pesan</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Ceritakan kebutuhan IT Anda..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-i18n="form_submit">Kirim Pesan</button>
+                    <div class="form-success" id="formSuccess">
+                        <span>✅</span>
+                        <p data-i18n="form_success">Pesan Anda telah terkirim! Tim kami akan menghubungi Anda dalam 1x24 jam.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <span class="logo-xql">XQL</span> <span class="logo-tech">TECH</span>
+                    </a>
+                    <p data-i18n="footer_desc">Partner transformasi digital terpercaya untuk bisnis Anda. Kami membantu perusahaan berkembang melalui solusi IT inovatif.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer_services">Layanan</h4>
+                        <ul>
+                            <li><a href="#services" data-i18n="service1_title">Software Development</a></li>
+                            <li><a href="#services" data-i18n="service2_title">Cloud Solutions</a></li>
+                            <li><a href="#services" data-i18n="service3_title">IT Security</a></li>
+                            <li><a href="#services" data-i18n="service4_title">IT Consulting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer_company">Perusahaan</h4>
+                        <ul>
+                            <li><a href="#about" data-i18n="nav_about">Tentang Kami</a></li>
+                            <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
+                            <li><a href="#contact" data-i18n="nav_contact">Kontak</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer_legal">Legal</h4>
+                        <ul>
+                            <li><a href="#" data-i18n="footer_privacy">Kebijakan Privasi</a></li>
+                            <li><a href="#" data-i18n="footer_terms">Syarat & Ketentuan</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 XQL TECH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
