@@ -6,77 +6,79 @@
 // ===================================
 // Multi-language Support (i18n)
 // ===================================
-const translations = {
+var currentLang = 'id';
+
+var translations = {
     id: {
         // Navigation
         nav_home: 'Beranda',
         nav_about: 'Tentang Kami',
         nav_services: 'Layanan',
         nav_portfolio: 'Portfolio',
-        nav_blog: 'Insights',
         nav_contact: 'Kontak',
-        
-        // Hero Section
+
+        // Hero
         hero_badge: '🚀 Partner Transformasi Digital Anda',
         hero_title: 'Solusi IT Inovatif untuk <span class="highlight">Pertumbuhan Bisnis</span> Anda',
         hero_desc: 'XQL TECH membantu perusahaan Anda bertransformasi melalui teknologi terkini. Dari pengembangan software hingga cloud solutions, kami siap menjadi partner strategis Anda.',
         hero_cta1: 'Konsultasi Gratis',
         hero_cta2: 'Lihat Layanan',
+
+        // Stats
         stat_projects: 'Proyek Selesai',
         stat_clients: 'Klien Puas',
         stat_years: 'Tahun Pengalaman',
+
+        // Cards
         card_cloud: 'Cloud Solutions',
         card_security: 'IT Security',
         card_dev: 'Software Dev',
-        
-        // Clients
-        clients_title: 'Dipercaya oleh perusahaan terkemuka',
-        
-        // About Section
+
+        // About
         about_subtitle: 'Tentang Kami',
         about_title: 'Membangun Masa Depan Digital yang Lebih Baik',
-        about_desc1: 'XQL TECH adalah perusahaan konsultan IT yang berdedikasi untuk membantu bisnis di Indonesia melakukan transformasi digital. Didirikan pada tahun 2015, kami telah membantu lebih dari 50 perusahaan dari berbagai industri.',
-        about_desc2: 'Dengan tim ahli yang berpengalaman dan sertifikasi internasional, kami memberikan solusi IT yang tidak hanya canggih secara teknologi, tetapi juga selaras dengan tujuan bisnis Anda.',
+        about_desc1: 'XQL TECH adalah perusahaan konsultan IT yang berdedikasi untuk membantu bisnis di Indonesia melakukan transformasi digital. Dengan pengalaman lebih dari 10 tahun, kami telah membantu berbagai perusahaan dari startup hingga enterprise.',
+        about_desc2: 'Tim kami terdiri dari para ahli teknologi yang passionate dan berpengalaman di bidangnya. Kami percaya bahwa teknologi yang tepat dapat menjadi katalis pertumbuhan bisnis yang luar biasa.',
+        value_innovation_title: 'Inovasi',
+        value_innovation_desc: 'Kami selalu mencari cara baru dan lebih baik untuk memecahkan masalah teknologi.',
+        value_quality_title: 'Kualitas',
+        value_quality_desc: 'Setiap solusi yang kami berikan memenuhi standar kualitas tertinggi.',
         value_vision_title: 'Visi',
-        value_vision_desc: 'Menjadi partner transformasi digital terdepan di Asia Tenggara',
-        value_mission_title: 'Misi',
-        value_mission_desc: 'Memberikan solusi IT inovatif yang mendorong pertumbuhan bisnis klien',
-        value_values_title: 'Nilai',
-        value_values_desc: 'Integritas, Inovasi, Kolaborasi, dan Keunggulan dalam setiap proyek',
-        
-        // Services Section
+        value_vision_desc: 'Kami membantu Anda melihat masa depan digital bisnis Anda dengan jelas.',
+
+        // Services
         services_subtitle: 'Layanan Kami',
         services_title: 'Solusi IT Lengkap untuk Bisnis Anda',
-        services_desc: 'Kami menawarkan berbagai layanan IT yang dirancang untuk membantu bisnis Anda berkembang di era digital',
+        services_desc: 'Kami menyediakan berbagai layanan IT yang dirancang untuk membantu bisnis Anda berkembang di era digital.',
         service1_title: 'Software Development',
-        service1_desc: 'Pengembangan aplikasi web dan mobile custom yang sesuai dengan kebutuhan bisnis Anda. Menggunakan teknologi terkini seperti React, Node.js, dan cloud-native architecture.',
-        service1_f1: 'Web Application Development',
-        service1_f2: 'Mobile App Development',
-        service1_f3: 'API Integration',
-        service1_f4: 'Legacy System Modernization',
+        service1_desc: 'Pengembangan software custom yang disesuaikan dengan kebutuhan bisnis Anda. Dari web app hingga mobile app.',
+        service1_f1: 'Web Application',
+        service1_f2: 'Mobile Application',
+        service1_f3: 'API Development',
+        service1_f4: 'System Integration',
         service2_title: 'Cloud Solutions',
-        service2_desc: 'Migrasi dan optimasi infrastruktur cloud untuk meningkatkan skalabilitas dan efisiensi biaya. Partner resmi AWS, Azure, dan Google Cloud.',
+        service2_desc: 'Migrasi dan manajemen cloud infrastructure untuk meningkatkan skalabilitas dan efisiensi bisnis.',
         service2_f1: 'Cloud Migration',
-        service2_f2: 'Infrastructure as Code',
-        service2_f3: 'DevOps Implementation',
+        service2_f2: 'Infrastructure Setup',
+        service2_f3: 'Cloud Monitoring',
         service2_f4: 'Cost Optimization',
         service3_title: 'IT Security',
-        service3_desc: 'Proteksi menyeluruh untuk aset digital Anda. Dari penetration testing hingga security audit, kami memastikan bisnis Anda aman dari ancaman siber.',
-        service3_f1: 'Security Audit & Assessment',
+        service3_desc: 'Perlindungan komprehensif untuk aset digital bisnis Anda dari ancaman siber.',
+        service3_f1: 'Security Audit',
         service3_f2: 'Penetration Testing',
-        service3_f3: 'Compliance Consulting',
+        service3_f3: 'Compliance Management',
         service3_f4: 'Incident Response',
         service4_title: 'IT Consulting',
-        service4_desc: 'Konsultasi strategis untuk transformasi digital dan optimasi proses bisnis. Kami membantu Anda membuat roadmap teknologi yang tepat.',
-        service4_f1: 'Digital Transformation Strategy',
+        service4_desc: 'Konsultasi strategis untuk membantu Anda membuat keputusan teknologi yang tepat.',
+        service4_f1: 'Digital Strategy',
         service4_f2: 'IT Roadmap Planning',
         service4_f3: 'Process Automation',
         service4_f4: 'Technology Assessment',
-        
-        // Portfolio Section
+
+        // Portfolio
         portfolio_subtitle: 'Portfolio Kami',
         portfolio_title: 'Proyek yang Telah Kami Selesaikan',
-        portfolio_desc: 'Beberapa studi kasus dari proyek-proyek terbaik kami yang telah memberikan dampak nyata bagi bisnis klien',
+        portfolio_desc: 'Beberapa studi kasus dari proyek-proyek terbaik kami yang telah memberikan dampak nyata bagi bisnis klien.',
         portfolio1_cat: 'Travel',
         portfolio1_title: 'Travel Agent Bali Best Holiday',
         portfolio1_desc: 'Mengembangkan platform travel yang memudahkan reservasi dan perencanaan liburan di Bali.',
@@ -99,42 +101,29 @@ const translations = {
         portfolio_available: 'Tersedia',
         portfolio_students: 'Siswa',
         portfolio_instructors: 'Instruktur',
-        
-        // Blog Section
-        blog_subtitle: 'Insights & Blog',
-        blog_title: 'Artikel Terbaru Seputar Teknologi',
-        blog_desc: 'Tetap update dengan tren teknologi terbaru dan insights dari para ahli kami',
-        blog1_title: 'Bagaimana AI Mengubah Lanskap Bisnis di 2026',
-        blog1_desc: 'Pelajari bagaimana artificial intelligence dapat meningkatkan efisiensi operasional dan menciptakan peluang baru bagi bisnis Anda.',
-        blog2_title: 'Panduan Lengkap Migrasi ke Cloud untuk Enterprise',
-        blog2_desc: 'Strategi dan best practices untuk migrasi infrastruktur legacy ke cloud tanpa mengganggu operasional bisnis.',
-        blog3_title: '5 Ancaman Keamanan Siber yang Perlu Diwaspadai',
-        blog3_desc: 'Kenali ancaman keamanan siber terbaru dan langkah-langkah pencegahan yang dapat Anda terapkan.',
-        blog_readmore: 'Baca Selengkapnya →',
-        
-        // Contact Section
+        portfolio_transactions: 'Transaksi',
+        portfolio_uptime: 'Uptime',
+
+        // Contact
         contact_subtitle: 'Hubungi Kami',
         contact_title: 'Siap Memulai Transformasi Digital?',
         contact_desc: 'Konsultasikan kebutuhan IT Anda dengan tim ahli kami. Dapatkan solusi yang tepat untuk bisnis Anda.',
         contact_address_title: 'Alamat',
         contact_address: 'Jl. kamboja 1 no.38, RT 011, RW 011, Kalideres, Kota Administrasi Jakarta Barat, Daerah Khusus Ibukota DKI Jakarta 11840',
         contact_phone_title: 'Telepon',
+        contact_email_title: 'Email',
         contact_hours_title: 'Jam Operasional',
         contact_hours: 'Senin - Jumat: 09:00 - 18:00 WIB',
-        form_name: 'Nama Lengkap',
-        form_company: 'Perusahaan',
-        form_email: 'Email',
-        form_phone: 'No. Telepon',
-        form_service: 'Layanan yang Diminati',
-        form_select: 'Pilih Layanan',
-        form_opt1: 'Software Development',
-        form_opt2: 'Cloud Solutions',
-        form_opt3: 'IT Security',
-        form_opt4: 'IT Consulting',
-        form_message: 'Pesan',
-        form_submit: 'Kirim Pesan',
-        form_success: 'Pesan Anda telah terkirim! Tim kami akan menghubungi Anda dalam 1x24 jam.',
-        
+        contact_form_name: 'Nama Lengkap',
+        contact_form_email: 'Email',
+        contact_form_phone: 'No. Telepon',
+        contact_form_message: 'Pesan',
+        contact_form_submit: 'Kirim Pesan',
+        contact_form_name_ph: 'Masukkan nama Anda',
+        contact_form_email_ph: 'Masukkan email Anda',
+        contact_form_phone_ph: 'Masukkan nomor telepon',
+        contact_form_message_ph: 'Ceritakan kebutuhan IT Anda...',
+
         // Footer
         footer_desc: 'Partner transformasi digital terpercaya untuk bisnis Anda. Kami membantu perusahaan berkembang melalui solusi IT inovatif.',
         footer_services: 'Layanan',
@@ -149,85 +138,85 @@ const translations = {
         nav_about: 'About Us',
         nav_services: 'Services',
         nav_portfolio: 'Portfolio',
-        nav_blog: 'Insights',
         nav_contact: 'Contact',
-        
-        // Hero Section
+
+        // Hero
         hero_badge: '🚀 Your Digital Transformation Partner',
         hero_title: 'Innovative IT Solutions for Your <span class="highlight">Business Growth</span>',
         hero_desc: 'XQL TECH helps your company transform through cutting-edge technology. From software development to cloud solutions, we are ready to be your strategic partner.',
         hero_cta1: 'Free Consultation',
         hero_cta2: 'View Services',
+
+        // Stats
         stat_projects: 'Projects Completed',
         stat_clients: 'Happy Clients',
         stat_years: 'Years Experience',
+
+        // Cards
         card_cloud: 'Cloud Solutions',
         card_security: 'IT Security',
         card_dev: 'Software Dev',
-        
-        // Clients
-        clients_title: 'Trusted by leading companies',
-        
-        // About Section
+
+        // About
         about_subtitle: 'About Us',
         about_title: 'Building a Better Digital Future',
-        about_desc1: 'XQL TECH is an IT consulting company dedicated to helping businesses in Indonesia undergo digital transformation. Founded in 2015, we have helped more than 50 companies from various industries.',
-        about_desc2: 'With an experienced team of experts and international certifications, we provide IT solutions that are not only technologically advanced, but also aligned with your business goals.',
+        about_desc1: 'XQL TECH is an IT consulting company dedicated to helping businesses in Indonesia undergo digital transformation. With over 10 years of experience, we have helped various companies from startups to enterprises.',
+        about_desc2: 'Our team consists of passionate and experienced technology experts. We believe that the right technology can be a catalyst for extraordinary business growth.',
+        value_innovation_title: 'Innovation',
+        value_innovation_desc: 'We always look for new and better ways to solve technology problems.',
+        value_quality_title: 'Quality',
+        value_quality_desc: 'Every solution we deliver meets the highest quality standards.',
         value_vision_title: 'Vision',
-        value_vision_desc: 'To be the leading digital transformation partner in Southeast Asia',
-        value_mission_title: 'Mission',
-        value_mission_desc: 'Delivering innovative IT solutions that drive client business growth',
-        value_values_title: 'Values',
-        value_values_desc: 'Integrity, Innovation, Collaboration, and Excellence in every project',
-        
-        // Services Section
+        value_vision_desc: 'We help you see the digital future of your business clearly.',
+
+        // Services
         services_subtitle: 'Our Services',
         services_title: 'Complete IT Solutions for Your Business',
-        services_desc: 'We offer a range of IT services designed to help your business thrive in the digital era',
+        services_desc: 'We provide various IT services designed to help your business thrive in the digital era.',
         service1_title: 'Software Development',
-        service1_desc: 'Custom web and mobile application development tailored to your business needs. Using the latest technologies like React, Node.js, and cloud-native architecture.',
-        service1_f1: 'Web Application Development',
-        service1_f2: 'Mobile App Development',
-        service1_f3: 'API Integration',
-        service1_f4: 'Legacy System Modernization',
+        service1_desc: 'Custom software development tailored to your business needs. From web apps to mobile apps.',
+        service1_f1: 'Web Application',
+        service1_f2: 'Mobile Application',
+        service1_f3: 'API Development',
+        service1_f4: 'System Integration',
         service2_title: 'Cloud Solutions',
-        service2_desc: 'Cloud infrastructure migration and optimization to improve scalability and cost efficiency. Official partner of AWS, Azure, and Google Cloud.',
+        service2_desc: 'Cloud infrastructure migration and management to improve business scalability and efficiency.',
         service2_f1: 'Cloud Migration',
-        service2_f2: 'Infrastructure as Code',
-        service2_f3: 'DevOps Implementation',
+        service2_f2: 'Infrastructure Setup',
+        service2_f3: 'Cloud Monitoring',
         service2_f4: 'Cost Optimization',
         service3_title: 'IT Security',
-        service3_desc: 'Comprehensive protection for your digital assets. From penetration testing to security audit, we ensure your business is safe from cyber threats.',
-        service3_f1: 'Security Audit & Assessment',
+        service3_desc: 'Comprehensive protection for your business digital assets from cyber threats.',
+        service3_f1: 'Security Audit',
         service3_f2: 'Penetration Testing',
-        service3_f3: 'Compliance Consulting',
+        service3_f3: 'Compliance Management',
         service3_f4: 'Incident Response',
         service4_title: 'IT Consulting',
-        service4_desc: 'Strategic consulting for digital transformation and business process optimization. We help you create the right technology roadmap.',
-        service4_f1: 'Digital Transformation Strategy',
+        service4_desc: 'Strategic consulting to help you make the right technology decisions.',
+        service4_f1: 'Digital Strategy',
         service4_f2: 'IT Roadmap Planning',
         service4_f3: 'Process Automation',
         service4_f4: 'Technology Assessment',
-        
-        // Portfolio Section
+
+        // Portfolio
         portfolio_subtitle: 'Our Portfolio',
         portfolio_title: 'Projects We Have Completed',
-        portfolio_desc: 'Some case studies from our best projects that have delivered real impact to client businesses',
-        portfolio1_cat: 'Fintech',
-        portfolio1_title: 'Digital Banking Platform',
-        portfolio1_desc: 'Developed a digital banking platform serving 500,000+ users with 99.9% uptime.',
+        portfolio_desc: 'Some case studies from our best projects that have delivered real impact to client businesses.',
+        portfolio1_cat: 'Travel',
+        portfolio1_title: 'Travel Agent Bali Best Holiday',
+        portfolio1_desc: 'Developed a travel platform that simplifies reservation and vacation planning in Bali.',
         portfolio2_cat: 'E-Commerce',
         portfolio2_title: 'Inventory Management System',
-        portfolio2_desc: 'Integrated inventory management system that reduced operational costs by up to 40%.',
+        portfolio2_desc: 'Integrated inventory management system that reduces operational costs by up to 40%.',
         portfolio3_cat: 'Healthcare',
         portfolio3_title: 'Telemedicine Platform',
         portfolio3_desc: 'Telemedicine platform connecting 1000+ doctors with patients across Indonesia.',
         portfolio4_cat: 'Education',
         portfolio4_title: 'E-Learning Platform',
-        portfolio4_desc: 'An online learning platform connecting 500+ instructors with 50,000+ students across Indonesia.',
+        portfolio4_desc: 'Online learning platform connecting 500+ instructors with 50,000+ students across Indonesia.',
         portfolio5_cat: 'Fintech',
         portfolio5_title: 'Digital Payment Gateway',
-        portfolio5_desc: 'A digital payment gateway processing millions of transactions with high-level security and multi-bank integration.',
+        portfolio5_desc: 'Digital payment gateway processing millions of transactions with high-level security and multi-bank integration.',
         portfolio_users: 'Users',
         portfolio_cost: 'Cost Savings',
         portfolio_faster: 'Faster',
@@ -235,42 +224,29 @@ const translations = {
         portfolio_available: 'Available',
         portfolio_students: 'Students',
         portfolio_instructors: 'Instructors',
-        
-        // Blog Section
-        blog_subtitle: 'Insights & Blog',
-        blog_title: 'Latest Technology Articles',
-        blog_desc: 'Stay updated with the latest technology trends and insights from our experts',
-        blog1_title: 'How AI is Transforming the Business Landscape in 2026',
-        blog1_desc: 'Learn how artificial intelligence can improve operational efficiency and create new opportunities for your business.',
-        blog2_title: 'Complete Guide to Cloud Migration for Enterprise',
-        blog2_desc: 'Strategies and best practices for migrating legacy infrastructure to the cloud without disrupting business operations.',
-        blog3_title: '5 Cyber Security Threats to Watch Out For',
-        blog3_desc: 'Recognize the latest cyber security threats and prevention measures you can implement.',
-        blog_readmore: 'Read More →',
-        
-        // Contact Section
+        portfolio_transactions: 'Transactions',
+        portfolio_uptime: 'Uptime',
+
+        // Contact
         contact_subtitle: 'Contact Us',
         contact_title: 'Ready to Start Digital Transformation?',
         contact_desc: 'Consult your IT needs with our expert team. Get the right solution for your business.',
         contact_address_title: 'Address',
-        contact_address: 'Jl. kamboja 1 no.38, RT 011, RW 011, Kalideres, Kota Administrasi Jakarta Barat, Daerah Khusus Ibukota DKI Jakarta 11840',
+        contact_address: 'Jl. kamboja 1 no.38, RT 011, RW 011, Kalideres, West Jakarta, DKI Jakarta 11840',
         contact_phone_title: 'Phone',
-        contact_hours_title: 'Business Hours',
+        contact_email_title: 'Email',
+        contact_hours_title: 'Operating Hours',
         contact_hours: 'Monday - Friday: 09:00 - 18:00 WIB',
-        form_name: 'Full Name',
-        form_company: 'Company',
-        form_email: 'Email',
-        form_phone: 'Phone Number',
-        form_service: 'Service of Interest',
-        form_select: 'Select Service',
-        form_opt1: 'Software Development',
-        form_opt2: 'Cloud Solutions',
-        form_opt3: 'IT Security',
-        form_opt4: 'IT Consulting',
-        form_message: 'Message',
-        form_submit: 'Send Message',
-        form_success: 'Your message has been sent! Our team will contact you within 24 hours.',
-        
+        contact_form_name: 'Full Name',
+        contact_form_email: 'Email',
+        contact_form_phone: 'Phone Number',
+        contact_form_message: 'Message',
+        contact_form_submit: 'Send Message',
+        contact_form_name_ph: 'Enter your name',
+        contact_form_email_ph: 'Enter your email',
+        contact_form_phone_ph: 'Enter phone number',
+        contact_form_message_ph: 'Tell us about your IT needs...',
+
         // Footer
         footer_desc: 'Your trusted digital transformation partner. We help companies grow through innovative IT solutions.',
         footer_services: 'Services',
@@ -281,339 +257,399 @@ const translations = {
     }
 };
 
-// Current language state
-let currentLang = 'id';
-
-// Function to switch language
-function switchLanguage() {
-    currentLang = currentLang === 'id' ? 'en' : 'id';
-    updateLanguage();
-    updateLangSwitcher();
-    localStorage.setItem('preferredLang', currentLang);
-}
-
-// Function to update all translatable elements
 function updateLanguage() {
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[currentLang][key]) {
+    var t = translations[currentLang];
+    if (!t) return;
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                if (el.type === 'submit' || el.type === 'button') {
-                    el.value = translations[currentLang][key];
+                if (el.type === 'submit' || el.tagName === 'BUTTON') {
+                    el.value = t[key];
                 } else {
-                    el.placeholder = translations[currentLang][key];
+                    el.placeholder = t[key];
                 }
             } else {
-                el.innerHTML = translations[currentLang][key];
+                el.innerHTML = t[key];
             }
         }
     });
-    
-    // Update HTML lang attribute
+
+    // Update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-placeholder');
+        if (t[key]) el.placeholder = t[key];
+    });
+
     document.documentElement.lang = currentLang;
 }
 
-// Function to update language switcher display
 function updateLangSwitcher() {
-    const switcher = document.getElementById('langSwitcher');
-    if (switcher) {
-        const currentSpan = switcher.querySelector('.lang-current');
-        const altSpan = switcher.querySelector('.lang-alt');
-        if (currentLang === 'id') {
-            currentSpan.textContent = 'ID';
-            altSpan.textContent = 'EN';
-        } else {
-            currentSpan.textContent = 'EN';
-            altSpan.textContent = 'ID';
-        }
+    var switcher = document.getElementById('langSwitcher');
+    if (!switcher) return;
+    var current = switcher.querySelector('.lang-current');
+    var alt = switcher.querySelector('.lang-alt');
+    if (currentLang === 'id') {
+        if (current) current.textContent = 'ID';
+        if (alt) alt.textContent = 'EN';
+    } else {
+        if (current) current.textContent = 'EN';
+        if (alt) alt.textContent = 'ID';
     }
 }
 
+function switchLanguage() {
+    currentLang = currentLang === 'id' ? 'en' : 'id';
+    localStorage.setItem('preferredLang', currentLang);
+    updateLanguage();
+    updateLangSwitcher();
+}
+
 // ===================================
-// Navigation & Mobile Menu
+// Navigation
 // ===================================
 function initNavigation() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    // Mobile menu toggle
-    if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        // Close menu when clicking a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-    
-    // Active link highlighting on scroll
-    const sections = document.querySelectorAll('section[id]');
-    
-    function highlightNavLink() {
-        const scrollPos = window.scrollY + 100;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', highlightNavLink);
-    
-    // Header scroll effect
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
+    var header = document.querySelector('.header');
+    var mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    var navMenu = document.querySelector('.nav-menu');
+    var navLinks = document.querySelectorAll('.nav-link');
+
+    // Scroll effect
+    window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
+
+        // Active nav link based on scroll position
+        var sections = document.querySelectorAll('section[id]');
+        var scrollPos = window.scrollY + 100;
+
+        sections.forEach(function(section) {
+            var top = section.offsetTop;
+            var height = section.offsetHeight;
+            var id = section.getAttribute('id');
+
+            if (scrollPos >= top && scrollPos < top + height) {
+                navLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + id) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
     });
+
+    // Mobile menu toggle
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+    }
 }
 
 // ===================================
-// Contact Form Handler
+// Contact Form
 // ===================================
 function initContactForm() {
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('formSuccess');
-    
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            
-            // Log form data (in production, this would be sent to a server)
-            console.log('Form submitted:', data);
+    var form = document.getElementById('contactForm');
+    if (!form) return;
 
-            // Simpan pesan ke localStorage agar bisa dibaca di admin dashboard
-            const messages = JSON.parse(localStorage.getItem('xql_contact_messages') || '[]');
-            messages.push({
-                id: Date.now(),
-                name: data.name || '',
-                email: data.email || '',
-                phone: data.phone || '',
-                service: data.service || '',
-                message: data.message || '',
-                date: new Date().toISOString(),
-                read: false
-            });
-            localStorage.setItem('xql_contact_messages', JSON.stringify(messages));
-            console.log('💾 Pesan disimpan ke localStorage. Total pesan:', messages.length);
-            
-            // Show success message
-            if (successMessage) {
-                successMessage.classList.add('show');
-            }
-            
-            // Reset form
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData(form);
+        var name = formData.get('name');
+        var email = formData.get('email');
+        var message = formData.get('message');
+
+        if (!name || !email || !message) {
+            alert(currentLang === 'id' ? 'Mohon lengkapi semua field yang wajib diisi.' : 'Please fill in all required fields.');
+            return;
+        }
+
+        // Simulate form submission
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var originalText = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) {
+            submitBtn.textContent = currentLang === 'id' ? 'Mengirim...' : 'Sending...';
+            submitBtn.disabled = true;
+        }
+
+        setTimeout(function() {
+            alert(currentLang === 'id' ? 'Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.' : 'Your message has been sent! We will contact you soon.');
             form.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                if (successMessage) {
-                    successMessage.classList.remove('show');
-                }
-            }, 5000);
-        });
-    }
+            if (submitBtn) {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }, 1500);
+    });
 }
 
 // ===================================
 // Scroll Animations
 // ===================================
 function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.service-card, .portfolio-card, .blog-card, .team-card, .value-item');
-    
-    // Add animation class to elements
-    animatedElements.forEach(el => {
-        el.classList.add('animate-on-scroll');
-    });
-    
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    var observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('animate-in');
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    animatedElements.forEach(el => {
+    }, observerOptions);
+
+    // Observe elements
+    var animateElements = document.querySelectorAll('.service-card, .portfolio-card, .value-card, .stat-item, .info-item, .section-header');
+    animateElements.forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+
+    // Add CSS for animation
+    var style = document.createElement('style');
+    style.textContent = '.animate-in { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
 }
 
 // ===================================
-// Smooth Scroll for Anchor Links
+// Smooth Scroll
 // ===================================
 function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            var target = document.querySelector(targetId);
+            if (target) {
+                var headerHeight = document.querySelector('.header').offsetHeight;
+                var targetPosition = target.offsetTop - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });
 }
 
 // ===================================
-// Load Portfolio Data from localStorage
+// Portfolio Data Loading
 // ===================================
+
+/**
+ * loadPortfolioFromStorage()
+ * Memuat data portfolio dari localStorage (xql_site_data)
+ * yang disimpan oleh admin dashboard.
+ */
 function loadPortfolioFromStorage() {
-    for (let i = 1; i <= 5; i++) {
-        const stored = localStorage.getItem('xql_admin_data_portfolio');
-        if (!stored) continue;
+    var stored = localStorage.getItem('xql_site_data');
+    if (!stored) return;
 
-        try {
-            const data = JSON.parse(stored);
-            const card = document.querySelectorAll('.portfolio-card')[i - 1];
-            if (!card) continue;
+    try {
+        var data = JSON.parse(stored);
+        console.log('📂 Memuat data portfolio dari localStorage:', Object.keys(data));
+        applyPortfolioData(data);
+    } catch (e) {
+        console.error('❌ Gagal memuat data dari localStorage:', e);
+    }
+}
 
-            // Admin form field names: portfolio1_title, portfolio1_cat, portfolio1_desc, etc.
-            const prefix = 'portfolio' + i;
+/**
+ * applyPortfolioData(data)
+ * Menerapkan data portfolio ke halaman website.
+ * Digunakan oleh loadPortfolioFromStorage dan loadFromDataJson.
+ *
+ * Struktur HTML index.html:
+ * - Gambar: <img id="portfolioImg1"> ... <img id="portfolioImg5">
+ * - Ikon:   <span id="portfolioIcon1"> ... <span id="portfolioIcon5">
+ * - Card:   .portfolio-card (urutan ke-1 sampai ke-5 di dalam .portfolio-grid)
+ * - Teks:   elemen dengan atribut data-i18n="portfolio1_title", dll.
+ */
+function applyPortfolioData(data) {
+    // Helper: update semua elemen dengan data-i18n tertentu (innerHTML)
+    function updateByI18n(key, value) {
+        if (!value) return;
+        document.querySelectorAll('[data-i18n="' + key + '"]').forEach(function(el) {
+            el.innerHTML = value;
+        });
+    }
 
-            // Cek status aktif/nonaktif slide (toggle dari admin dashboard)
-            // Jika portfolio{i}_active === 'off', sembunyikan slide portfolio ini
-            const activeKey = prefix + '_active';
-            if (typeof data[activeKey] !== 'undefined' && data[activeKey] === 'off') {
-                card.style.display = 'none';
-                console.log('🚫 Portfolio ' + i + ' dinonaktifkan (slide disembunyikan)');
-                continue; // Lewati pembaruan data lain karena slide tidak ditampilkan
-            } else {
-                card.style.display = ''; // Pastikan terlihat jika aktif
+    // Helper: update semua elemen dengan data-i18n tertentu (textContent)
+    function updateTextByI18n(key, value) {
+        if (!value) return;
+        document.querySelectorAll('[data-i18n="' + key + '"]').forEach(function(el) {
+            el.textContent = value;
+        });
+    }
+
+    // Ambil semua portfolio card dari grid
+    var cards = document.querySelectorAll('.portfolio-grid .portfolio-card');
+
+    // === PORTFOLIO 1 - 5 ===
+    for (var i = 1; i <= 5; i++) {
+        var prefix = 'portfolio' + i;
+
+        // Update teks via data-i18n
+        updateByI18n(prefix + '_title', data[prefix + '_title']);
+        updateTextByI18n(prefix + '_cat', data[prefix + '_cat']);
+        updateTextByI18n(prefix + '_desc', data[prefix + '_desc']);
+
+        // Update gambar banner (img#portfolioImgN)
+        var imgEl = document.getElementById('portfolioImg' + i);
+        var iconEl = document.getElementById('portfolioIcon' + i);
+        var imageKey = prefix + '_image';
+
+        if (data[imageKey]) {
+            if (imgEl) {
+                imgEl.src = data[imageKey];
+                imgEl.style.display = 'block';
             }
-
-            // Update category
-            if (data[prefix + '_cat']) {
-                const catEl = card.querySelector('.portfolio-category');
-                if (catEl) catEl.textContent = data[prefix + '_cat'];
+            // Sembunyikan emoji icon jika ada gambar
+            if (iconEl) {
+                iconEl.style.display = 'none';
             }
+        }
 
-            // Update title
-            if (data[prefix + '_title']) {
-                const titleEl = card.querySelector('.portfolio-content h3');
-                if (titleEl) titleEl.textContent = data[prefix + '_title'];
-            }
+        // Update result values (result-item ke-1 dan ke-2 di setiap card)
+        var card = cards[i - 1];
+        if (card) {
+            var resultItems = card.querySelectorAll('.result-item');
 
-            // Update description
-            if (data[prefix + '_desc']) {
-                const descEl = card.querySelector('.portfolio-content p');
-                if (descEl) descEl.textContent = data[prefix + '_desc'];
-            }
-
-            // Update result values and labels
-            // Admin form field names: portfolio1_result1_value, portfolio1_result1_label, etc.
-            const resultItems = card.querySelectorAll('.result-item');
+            // Result 1 value
             if (resultItems[0] && data[prefix + '_result1_value']) {
-                const valEl = resultItems[0].querySelector('.result-value');
+                var valEl = resultItems[0].querySelector('.result-value');
                 if (valEl) valEl.textContent = data[prefix + '_result1_value'];
             }
+            // Result 1 label
             if (resultItems[0] && data[prefix + '_result1_label']) {
-                const lblEl = resultItems[0].querySelector('.result-label');
+                var lblEl = resultItems[0].querySelector('.result-label');
                 if (lblEl) lblEl.textContent = data[prefix + '_result1_label'];
             }
+            // Result 2 value
             if (resultItems[1] && data[prefix + '_result2_value']) {
-                const valEl = resultItems[1].querySelector('.result-value');
-                if (valEl) valEl.textContent = data[prefix + '_result2_value'];
+                var valEl2 = resultItems[1].querySelector('.result-value');
+                if (valEl2) valEl2.textContent = data[prefix + '_result2_value'];
             }
+            // Result 2 label
             if (resultItems[1] && data[prefix + '_result2_label']) {
-                const lblEl = resultItems[1].querySelector('.result-label');
-                if (lblEl) lblEl.textContent = data[prefix + '_result2_label'];
+                var lblEl2 = resultItems[1].querySelector('.result-label');
+                if (lblEl2) lblEl2.textContent = data[prefix + '_result2_label'];
             }
 
-            // Update icon/emoji if provided
-            if (data[prefix + '_icon']) {
-                const iconEl = card.querySelector('.portfolio-icon');
-                if (iconEl) iconEl.textContent = data[prefix + '_icon'];
+            // Update icon/emoji jika diberikan dari admin
+            if (data[prefix + '_icon'] && iconEl) {
+                iconEl.textContent = data[prefix + '_icon'];
             }
+        }
 
-            // Update image if provided (as data URL)
-            // Admin saves images as banner_file_1, banner_file_2, banner_file_3
-            const imageKey = 'banner_file_' + i;
-            if (data[prefix + '_image'] || data[imageKey]) {
-                const imgEl = card.querySelector('.portfolio-img');
-                if (imgEl) {
-                    imgEl.src = data[prefix + '_image'] || data[imageKey];
-                    imgEl.style.display = 'block';
-                    // Hide the emoji icon if image exists
-                    const emojiEl = card.querySelector('.portfolio-icon');
-                    if (emojiEl) emojiEl.style.display = 'none';
-                }
+        // === PORTFOLIO ACTIVE/INACTIVE ===
+        // Jika portfolio{i}_active === 'off', sembunyikan card
+        var activeKey = prefix + '_active';
+        if (data[activeKey] === 'off') {
+            if (card) {
+                card.style.display = 'none';
+                console.log('🚫 Portfolio ' + i + ' disembunyikan (nonaktif dari admin)');
             }
-
-            console.log('📂 Portfolio ' + i + ' loaded from localStorage');
-        } catch (e) {
-            console.error('Error loading portfolio ' + i + ' from localStorage:', e);
+        } else if (card) {
+            // Pastikan card terlihat jika aktif
+            card.style.display = '';
         }
     }
+
+    // === HERO ===
+    updateByI18n('hero_badge', data.hero_badge);
+    updateByI18n('hero_title', data.hero_title);
+    updateByI18n('hero_desc', data.hero_desc);
+
+    // === STATISTIK ===
+    if (data.stat_projects) { var el = document.querySelector('[data-i18n="stat_projects"]'); if (el) el.textContent = data.stat_projects; }
+    if (data.stat_clients)  { var el = document.querySelector('[data-i18n="stat_clients"]');  if (el) el.textContent = data.stat_clients; }
+    if (data.stat_years)    { var el = document.querySelector('[data-i18n="stat_years"]');    if (el) el.textContent = data.stat_years; }
+
+    // === ABOUT ===
+    updateByI18n('about_desc1', data.about_desc1);
+    updateByI18n('value_vision_desc', data.value_vision_desc);
+
+    // === LOGO ===
+    if (data.logo_image) {
+        document.querySelectorAll('.logo-image').forEach(function(img) { img.src = data.logo_image; });
+    }
+
+    console.log('✅ Data portfolio berhasil diterapkan ke halaman');
+}
+
+/**
+ * loadFromDataJson()
+ * Mencoba memuat data.json dari server (hosting).
+ * Jika berhasil, data diterapkan ke halaman.
+ * Jika gagal (file tidak ada), fallback ke localStorage.
+ */
+function loadFromDataJson() {
+    fetch('data.json')
+        .then(function(response) {
+            if (!response.ok) throw new Error('data.json tidak ditemukan');
+            return response.json();
+        })
+        .then(function(data) {
+            console.log('📂 Memuat data dari data.json (hosting):', Object.keys(data));
+            applyPortfolioData(data);
+            // Simpan juga ke localStorage agar tetap sinkron
+            localStorage.setItem('xql_site_data', JSON.stringify(data));
+        })
+        .catch(function(err) {
+            console.log('ℹ️ data.json tidak ditemukan, menggunakan localStorage:', err.message);
+            loadPortfolioFromStorage();
+        });
 }
 
 // ===================================
 // Initialize Everything on DOM Ready
 // ===================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // Initialize language
-    const savedLang = localStorage.getItem('preferredLang');
+    var savedLang = localStorage.getItem('preferredLang');
     if (savedLang && (savedLang === 'id' || savedLang === 'en')) {
         currentLang = savedLang;
     }
     updateLanguage();
     updateLangSwitcher();
-    
+
     // Language switcher event
-    const langSwitcher = document.getElementById('langSwitcher');
+    var langSwitcher = document.getElementById('langSwitcher');
     if (langSwitcher) {
         langSwitcher.addEventListener('click', switchLanguage);
     }
-    
+
     // Initialize other features
     initNavigation();
     initContactForm();
     initScrollAnimations();
     initSmoothScroll();
-    
-    // Load portfolio data from localStorage (saved by admin dashboard)
-    loadPortfolioFromStorage();
-    
-    console.log('XQL TECH Website initialized! 🚀');
+
+    // Load portfolio: coba data.json dulu (hosting), fallback ke localStorage
+    loadFromDataJson();
 });

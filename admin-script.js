@@ -290,6 +290,57 @@ function dismissToast(toastElement) {
  * @param {string} formType - Tipe form: 'hero' | 'about' | 'portfolio'
  * @param {FormData} formData - Data dari form
  */
+/**
+ * autoExportDataJson()
+ * Otomatis download data.json setiap kali admin menyimpan data.
+ * Admin tinggal upload file ini ke hosting agar frontend sinkron.
+ */
+function autoExportDataJson() {
+    var siteData = {};
+    var keys = ['xql_admin_data_hero', 'xql_admin_data_about', 'xql_admin_data_portfolio'];
+    keys.forEach(function(key) {
+        var raw = localStorage.getItem(key);
+        if (!raw) return;
+        try {
+            var data = JSON.parse(raw);
+            for (var k in data) {
+                if (data.hasOwnProperty(k)) {
+                    siteData[k] = data[k];
+                }
+            }
+        } catch(e) { /* abaikan */ }
+    });
+
+    // Mapping banner_file_N ke portfolioN_image
+    var bannerMap = {
+        'banner_file_1': 'portfolio1_image',
+        'banner_file_2': 'portfolio2_image',
+        'banner_file_3': 'portfolio3_image',
+        'banner_file_4': 'portfolio4_image',
+        'banner_file_5': 'portfolio5_image',
+        'banner_file':   'portfolio1_image'
+    };
+    for (var bannerKey in bannerMap) {
+        if (siteData[bannerKey] && typeof siteData[bannerKey] === 'string' && siteData[bannerKey].indexOf('data:image/') === 0) {
+            siteData[bannerMap[bannerKey]] = siteData[bannerKey];
+        }
+    }
+    delete siteData['logo_file'];
+
+    var json = JSON.stringify(siteData, null, 2);
+    var blob = new Blob([json], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'data.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    console.log('📦 Auto-export: data.json berhasil di-download untuk hosting');
+}
+
 function saveFormDataToStorage(formType, formData) {
     const data = {};
 
@@ -336,8 +387,22 @@ function saveFormDataToStorage(formType, formData) {
                 siteData[key] = value;
             }
         }
+        // Mapping banner_file_N → portfolioN_image agar frontend bisa menampilkan gambar
+        const bannerToPortfolioMap = {
+            'banner_file_1': 'portfolio1_image',
+            'banner_file_2': 'portfolio2_image',
+            'banner_file_3': 'portfolio3_image',
+            'banner_file_4': 'portfolio4_image',
+            'banner_file_5': 'portfolio5_image',
+            'banner_file':   'portfolio1_image'
+        };
+        for (const [bannerKey, portfolioKey] of Object.entries(bannerToPortfolioMap)) {
+            if (data[bannerKey] && typeof data[bannerKey] === 'string' && data[bannerKey].startsWith('data:image/')) {
+                siteData[portfolioKey] = data[bannerKey];
+            }
+        }
         localStorage.setItem('xql_site_data', JSON.stringify(siteData));
-        console.log('💾 Data ' + formType + ' juga disimpan ke xql_site_data untuk halaman utama:', Object.keys(data).filter(k => typeof data[k] === 'string' && !data[k].startsWith('data:image/')));
+        console.log('💾 Data ' + formType + ' juga disimpan ke xql_site_data untuk halaman utama:', Object.keys(siteData));
     }).catch(function(err) {
         console.error('❌ Gagal menyimpan file:', err);
         throw err;
@@ -533,6 +598,9 @@ function handleFormSubmit(event, formType) {
             portfolio: 'Data Portfolio berhasil disimpan!'
         };
         showToast(labels[formType] || 'Data berhasil disimpan!', 'success');
+
+        // Auto-export data.json untuk hosting
+        autoExportDataJson();
     }).catch(function(err) {
         showToast('Gagal menyimpan data. Silakan coba lagi.', 'error');
         console.error(' Error menyimpan data:', err);
@@ -662,6 +730,10 @@ function savePortfolioToggleState(toggle) {
     localStorage.setItem('xql_site_data', JSON.stringify(siteData));
 
     console.log('💾 Portfolio ' + portfolioIndex + ' status:', value);
+
+    // Auto-export data.json untuk hosting
+    autoExportDataJson();
+
     showToast('Slide Portfolio ' + portfolioIndex + (toggle.checked ? ' diaktifkan' : ' dinonaktifkan'), toggle.checked ? 'success' : 'info');
 }
 
@@ -1316,7 +1388,64 @@ function searchMessages(query) {
 
 
 // ============================================================
-// 12. INISIALISASI
+// 12. EXPORT DATA (untuk Hosting)
+//     Menggabungkan semua data localStorage menjadi file data.json
+//     yang bisa di-upload ke hosting agar frontend bisa membaca.
+// ============================================================
+
+function exportSiteData() {
+    var siteData = {};
+
+    // Gabungkan semua key admin ke satu objek
+    var keys = ['xql_admin_data_hero', 'xql_admin_data_about', 'xql_admin_data_portfolio'];
+    keys.forEach(function(key) {
+        var raw = localStorage.getItem(key);
+        if (!raw) return;
+        try {
+            var data = JSON.parse(raw);
+            for (var k in data) {
+                if (data.hasOwnProperty(k)) {
+                    siteData[k] = data[k];
+                }
+            }
+        } catch(e) { /* abaikan */ }
+    });
+
+    // Mapping banner_file_N ke portfolioN_image
+    var bannerMap = {
+        'banner_file_1': 'portfolio1_image',
+        'banner_file_2': 'portfolio2_image',
+        'banner_file_3': 'portfolio3_image',
+        'banner_file_4': 'portfolio4_image',
+        'banner_file_5': 'portfolio5_image',
+        'banner_file':   'portfolio1_image'
+    };
+    for (var bannerKey in bannerMap) {
+        if (siteData[bannerKey] && typeof siteData[bannerKey] === 'string' && siteData[bannerKey].indexOf('data:image/') === 0) {
+            siteData[bannerMap[bannerKey]] = siteData[bannerKey];
+        }
+    }
+
+    // Hapus key yang bukan untuk frontend
+    delete siteData['logo_file'];
+
+    var json = JSON.stringify(siteData, null, 2);
+    var blob = new Blob([json], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'data.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showToast('data.json berhasil di-download! Upload file ini ke folder hosting yang sama dengan index.html', 'success');
+    console.log('Exported site data:', Object.keys(siteData));
+}
+
+// ============================================================
+// 13. INISIALISASI
 //    Setup awal saat halaman dashboard dimuat
 // ============================================================
 
